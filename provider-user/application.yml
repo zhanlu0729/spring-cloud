@@ -13,7 +13,6 @@ spring:
     schema: classpath:schema.sql
     data: classpath:data.sql
 logging:
-  path: /apply/logs/${BONE_EUREKA_SERVER_ENV:default}/${spring.application.name:app}/${HOSTNAME:local}
   level:
     root: INFO
     org.hibernate: INFO
