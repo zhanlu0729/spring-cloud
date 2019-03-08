@@ -24,3 +24,6 @@ eureka:
       defaultZone: ${BONE_EUREKA_SERVER_URL:http://bone:123456@192.168.200.64:30081/eureka/}
   instance:
     prefer-ip-address: true
+demo:
+  name: aa
+  password: bb
