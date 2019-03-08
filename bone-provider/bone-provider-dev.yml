@@ -25,5 +25,5 @@ eureka:
   instance:
     prefer-ip-address: true
 demo:
-  name: aa
+  name: aabbb
   password: bb
