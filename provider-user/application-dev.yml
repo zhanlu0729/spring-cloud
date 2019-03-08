@@ -1,7 +1,0 @@
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${BONE_EUREKA_SERVER_URL:http://${spring.security.user.name}:${spring.security.user.password}@192.168.200.64:30081/eureka/}
-  instance:
-    prefer-ip-address: true
