@@ -1,3 +1,8 @@
+spring:
+  security:
+    user:
+      name: bone
+      password: 123456
 eureka:
   client:
     serviceUrl:
