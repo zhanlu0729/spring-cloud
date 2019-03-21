@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: provider-user
+  security:
+    user:
+      name: bone
+      password: 123456
   jpa:
     generate-ddl: false
     show-sql: true
