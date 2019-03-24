@@ -10,6 +10,7 @@ eureka:
   instance:
     #优先使用IP地址进行注册
     prefer-ip-address: true
+    instance-id: ${HOSTNAME:localhost}:${server.port}
     #Eureka Client间隔多久向Eureka Server发送心跳,告知Eureka Server自己还存活,默认90
     leaseExpirationDurationInSeconds: 15
     #Eureka Client向Eureka Server发送心跳的时间间隔,默认30
