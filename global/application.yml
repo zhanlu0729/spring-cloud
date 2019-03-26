@@ -3,7 +3,29 @@ spring:
     user:
       name: bone
       password: 123456
+      
+  #配置链路追踪
+  zipkin:
+    sender:
+      type: web
+    locator:
+      discovery:
+        # 启用从注册中心获取Zipkin Server地址，如果为true，则spring.zipkin.baseUrl为服务名称
+        enabled: true
+    # 指定Zipkin Server地址，如果spring.zipkin.locator.discovery.enabled为true，则为服务名称，否则为Zipkin Server的URL地址
+    base-url: bone-cloud-zipkin-server
+  #配置采样率
+  sleuth:
+    sampler:
+      probability: ${BONE_SLEUTH_PROBABILITY:1.0}
 
+  #配置RabbitMQ,用于应用配置项通知
+  rabbitmq:
+    addresses: localhost:5672
+    username: guest
+    password: liuqi
+    
+#Eureka的配置    
 eureka:
   client:
     # 注册自身节点
