@@ -1,0 +1,46 @@
+spring:
+  security:
+    user:
+      name: bone
+      password: 123456
+
+eureka:
+  client:
+    # 注册自身节点
+    register-with-eureka: true
+    # 拉取节点注册信息
+    fetch-registry: true
+  instance:
+    #优先使用IP地址进行注册
+    prefer-ip-address: true
+    instance-id: ${HOSTNAME:localhost}:${server.port}
+    #Eureka Client间隔多久向Eureka Server发送心跳,告知Eureka Server自己还存活,默认90
+    leaseExpirationDurationInSeconds: 15
+    #Eureka Client向Eureka Server发送心跳的时间间隔,默认30
+    leaseRenewalIntervalInSeconds: 5
+    # 实例状态信息的URL路径
+    status-page-url-path: "/actuator/info"
+    # 实例健康信息的URL路径
+    health-check-url-path: "/actuator/health"
+    
+#Ribbon的配置
+ribbon:
+  # 饥饿加载服务实例，默认是false
+  eager-load:
+    enabled: true
+
+# 启用Hystrix
+feign:
+  hystrix:
+    enabled: true
+
+# 监控端点权限
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    root: info
