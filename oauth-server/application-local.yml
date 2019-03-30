@@ -1,0 +1,18 @@
+server:
+  port: 8764
+spring:
+  application:
+    name: oauth-server
+#安全配置
+security:
+  oauth2:
+    client:
+      #令牌端点
+      access-token-uri: http://localhost:8764/uaa/oauth/token
+      user-authorization-uri: http://localhost:8764/uaa/oauth/authorize
+      #授权
+      client-id: ${spring.application.name}
+      client-secret: secret
+    resource:
+      jwt:
+        key-value: springcloud123
