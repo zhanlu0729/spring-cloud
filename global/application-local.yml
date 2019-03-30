@@ -14,9 +14,24 @@ spring:
 # 注册中心配置
 eureka:
   client:
+    # 是否将自身注册到Eureka Server,默认true
+    register-with-eureka: true
+    # 是否从Eureka Server拉取服务节点注册信息,默认true
+    fetch-registry: true
+    # 拉取节点注册信息的时间间隔,CacheRefreshThread的调度频率,默认30
+    registry-fetch-interval-seconds: 1
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_URL:http://${spring.security.user.name}:${spring.security.user.password}@localhost:8761/eureka/}
-
+  instance:
+    #优先使用IP地址进行注册
+    prefer-ip-address: true
+    # 实例ID
+    instance-id: ${HOSTNAME:localhost}:${server.port}
+    # Eureka Client间隔多久向Eureka Server发送心跳来感知该实例还存活(服务端在该时间段内没有收到心跳则删除该实例),默认90
+    lease-expiration-duration-in-seconds: 30
+    # Eureka Client向Eureka Server发送心跳的时间间隔,默认30
+    lease-renewal-interval-in-seconds: 10
+    
 # 断路器的配置
 hystrix:
   command:
@@ -26,6 +41,7 @@ hystrix:
       execution.isolation.thread.timeoutInMilliseconds: 600000
       # 线程执行的隔离策略,默认值THREAD|SEMPHORE
       execution.isolation.strategy: THREAD
+      
 #Ribbon的配置
 ribbon:
   # 开启饥饿加载,默认false
