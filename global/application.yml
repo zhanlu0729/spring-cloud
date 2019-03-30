@@ -39,7 +39,7 @@ hystrix:
     # default配置全局HystrixCommand
     default:
       # 线程执行的超时时间,默认值1000
-      execution.isolation.thread.timeoutInMilliseconds: 1000
+      execution.isolation.thread.timeoutInMilliseconds: 2000
       # 线程执行的隔离策略,默认值THREAD|SEMPHORE
       execution.isolation.strategy: THREAD
 #Ribbon的配置
