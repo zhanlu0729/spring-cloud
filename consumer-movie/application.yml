@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: consumer-movie
+provider:
+  user:
+    serviceUrl: http://provider-user/user/
