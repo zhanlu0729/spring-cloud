@@ -1,4 +1,9 @@
 spring:
+  # 配置注册中心安全账户
+  security:
+    user:
+      name: ${SECURITY_USERNAME:bone}
+      password: ${SECURITY_PASSWORD:123456}
   # 配置链路追踪
   zipkin:
     sender:
@@ -23,6 +28,9 @@ eureka:
     register-with-eureka: true
     # 拉取节点注册信息
     fetch-registry: true
+    serviceUrl:
+      # 默认注册中心地址
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8671/eureka/
 
   #See org.springframework.cloud.netflix.eureka.EurekaInstanceConfigBean
   instance:
