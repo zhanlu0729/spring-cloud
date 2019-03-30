@@ -1,0 +1,11 @@
+server:
+  port: 8022
+spring:
+  application:
+    name: consumer-movie
+provider:
+  user:
+    serviceUrl: http://provider-user/user/
+feign:
+  hystrix:
+    enabled: true
