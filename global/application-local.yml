@@ -16,3 +16,26 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_URL:http://${spring.security.user.name}:${spring.security.user.password}@localhost:8761/eureka/}
+
+# 断路器的配置
+hystrix:
+  command:
+    # default配置全局HystrixCommand
+    default:
+      # 线程执行的超时时间,默认值1000
+      execution.isolation.thread.timeoutInMilliseconds: 600000
+      # 线程执行的隔离策略,默认值THREAD|SEMPHORE
+      execution.isolation.strategy: THREAD
+#Ribbon的配置
+ribbon:
+  # 开启饥饿加载,默认false
+  eager-load:
+    enabled: true
+  # 配置Ribbon默认的连接超时时间，默认1000
+  ConnectTimeout: 3000
+  # 配置Ribbon默认的读超时时间，默认1000
+  ReadTimeout: 30000
+  # 同一个服务重试的次数(除去第一次)，默认值 0
+  MaxAutoRetries: 1
+  # 重试下一个服务的最大数量(除去第一个服务)，默认值 1
+  MaxAutoRetriesNextServer: 0
