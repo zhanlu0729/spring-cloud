@@ -1,29 +1,18 @@
-spring:
-  security:
-    user:
-      name: bone
-      password: 123456
-      
-  #配置链路追踪
+spring:     
+  # 配置链路追踪
   zipkin:
     sender:
       type: web
     locator:
       discovery:
-        # 启用从注册中心获取Zipkin Server地址，如果为true，则spring.zipkin.baseUrl为服务名称
+        # 是否启用服务发现,默认false
         enabled: true
-    # 指定Zipkin Server地址，如果spring.zipkin.locator.discovery.enabled为true，则为服务名称，否则为Zipkin Server的URL地址
+    # 如果启用服务发现，则spring.zipkin.baseUrl为http://网关名/服务名称;如果不启用则为http://zipkin-server地址/
     base-url: http://zuul-server/zipkin-server
-  #配置采样率
+  # 配置采样率
   sleuth:
     sampler:
-      probability: ${SLEUTH_PROBABILITY:1.0}
-
-  #配置RabbitMQ,用于应用配置项通知
-  rabbitmq:
-    addresses: localhost:5672
-    username: guest
-    password: liuqi
+      probability: ${BONE_SLEUTH_PROBABILITY:1.0}
     
 #Eureka的配置    
 eureka:
