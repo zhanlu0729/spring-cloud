@@ -33,25 +33,40 @@ eureka:
     status-page-url-path: "/actuator/info"
     # 实例健康信息的URL路径
     health-check-url-path: "/actuator/health"
-    
+ 
+ hystrix:
+  command:
+    # default配置全局HystrixCommand
+    default:
+      # 线程执行的超时时间,默认值1000
+      execution.isolation.thread.timeoutInMilliseconds: 600000
+      # 线程执行的隔离策略,默认值THREAD|SEMPHORE
+      execution.isolation.strategy: SEMPHORE
 #Ribbon的配置
 ribbon:
-  # 饥饿加载服务实例，默认是false
+  # 开启饥饿加载,默认false
   eager-load:
     enabled: true
+  # 配置Ribbon默认的连接超时时间，默认1000
+  ConnectTimeout: 3000
+  # 配置Ribbon默认的读超时时间，默认1000
+  ReadTimeout: 30000
+  # 同一个服务重试的次数(除去第一次)，默认值 0
+  MaxAutoRetries: 1
+  # 重试下一个服务的最大数量(除去第一个服务)，默认值 1
+  MaxAutoRetriesNextServer: 0
 
-# 启用Hystrix
+# 启用Feign的Hystrix
 feign:
   hystrix:
     enabled: true
 
-# 监控端点权限
+# 管理监测端口(暂时放开)
 management:
+  endpoint:
+    health:
+      show-details: always
   endpoints:
     web:
       exposure:
         include: "*"
-
-logging:
-  level:
-    root: info
