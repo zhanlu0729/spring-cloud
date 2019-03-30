@@ -1,8 +1,2 @@
 server:
   port: 8761
-
-eureka:
-  client:
-    serviceUrl:
-      # 默认注册中心地址
-      defaultZone: ${EUREKA_SERVER_URL:http://${SECURITY_USERNAME:bone}:${SECURITY_PASSWORD:123456}@localhost:8671/eureka/}
