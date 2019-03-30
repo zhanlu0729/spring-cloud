@@ -1,8 +1,5 @@
 server:
   port: 8764
-spring:
-  application:
-    name: oauth-server
 #安全配置
 security:
   oauth2:
