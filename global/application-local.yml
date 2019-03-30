@@ -13,6 +13,7 @@ spring:
       
 # 注册中心配置
 eureka:
+  #See org.springframework.cloud.netflix.eureka.EurekaClientConfigBean
   client:
     # 是否将自身注册到Eureka Server,默认true
     register-with-eureka: true
@@ -20,8 +21,8 @@ eureka:
     fetch-registry: true
     # 拉取节点注册信息的时间间隔,CacheRefreshThread的调度频率,默认30
     registry-fetch-interval-seconds: 1
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER_URL:http://${spring.security.user.name}:${spring.security.user.password}@localhost:8761/eureka/}
+
+  #See org.springframework.cloud.netflix.eureka.EurekaInstanceConfigBean
   instance:
     #优先使用IP地址进行注册
     prefer-ip-address: true

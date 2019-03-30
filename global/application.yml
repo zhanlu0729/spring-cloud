@@ -1,4 +1,4 @@
-spring:     
+spring:
   # 配置链路追踪
   zipkin:
     sender:
@@ -12,18 +12,22 @@ spring:
   # 配置采样率
   sleuth:
     sampler:
-      probability: ${BONE_SLEUTH_PROBABILITY:1.0}
-    
+      probability: ${SLEUTH_PROBABILITY:1.0}
+
 #Eureka的配置    
 eureka:
+  #See org.springframework.cloud.netflix.eureka.EurekaClientConfigBean
   client:
     # 注册自身节点
     register-with-eureka: true
     # 拉取节点注册信息
     fetch-registry: true
+
+  #See org.springframework.cloud.netflix.eureka.EurekaInstanceConfigBean
   instance:
     #优先使用IP地址进行注册
     prefer-ip-address: true
+    # 实例ID
     instance-id: ${HOSTNAME:localhost}:${server.port}
     #Eureka Client间隔多久向Eureka Server发送心跳,告知Eureka Server自己还存活,默认90
     leaseExpirationDurationInSeconds: 15
@@ -33,7 +37,8 @@ eureka:
     status-page-url-path: "/actuator/info"
     # 实例健康信息的URL路径
     health-check-url-path: "/actuator/health"
- 
+
+#断路器的配置
 hystrix:
   command:
     # default配置全局HystrixCommand
@@ -42,6 +47,7 @@ hystrix:
       execution.isolation.thread.timeoutInMilliseconds: 2000
       # 线程执行的隔离策略,默认值THREAD|SEMPHORE
       execution.isolation.strategy: THREAD
+
 #Ribbon的配置
 ribbon:
   # 开启饥饿加载,默认false

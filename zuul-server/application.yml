@@ -1,0 +1,15 @@
+zuul:
+  ribbon:
+    # 默认是懒加载,会导致第一次调用时间过长,故启用饥饿加载,
+    eager-load:
+      enabled: true
+  #是否支持重试,默认false
+  retryable: true
+  #所有路由的通用前缀,默认""
+  prefix: ""
+  #是否在转发前从路径中删除前缀,默认true
+  stripPrefix: true
+  # 当后端服务响应较慢，建议配置成 thread 且 use-separate-thread-pools: true
+  ribbon-isolation-strategy: semaphore
+  semaphore:
+    max-semaphores: 100

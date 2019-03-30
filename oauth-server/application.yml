@@ -1,1 +1,10 @@
+#安全配置
+security:
+  oauth2:
+    client:
+      #令牌端点
+      access-token-uri: http://localhost:${server.port}/uaa/oauth/token
+      user-authorization-uri: http://localhost:${server.port}/uaa/oauth/authorize
+      #授权
+      client-id: ${spring.application.name}
 
