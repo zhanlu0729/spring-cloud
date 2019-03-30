@@ -15,19 +15,11 @@ spring:
 eureka:
   #See org.springframework.cloud.netflix.eureka.EurekaClientConfigBean
   client:
-    # 是否将自身注册到Eureka Server,默认true
-    register-with-eureka: true
-    # 是否从Eureka Server拉取服务节点注册信息,默认true
-    fetch-registry: true
     # 拉取节点注册信息的时间间隔,CacheRefreshThread的调度频率,默认30
     registry-fetch-interval-seconds: 1
 
   #See org.springframework.cloud.netflix.eureka.EurekaInstanceConfigBean
   instance:
-    #优先使用IP地址进行注册
-    prefer-ip-address: true
-    # 实例ID
-    instance-id: ${HOSTNAME:localhost}:${server.port}
     # Eureka Client间隔多久向Eureka Server发送心跳来感知该实例还存活(服务端在该时间段内没有收到心跳则删除该实例),默认90
     lease-expiration-duration-in-seconds: 30
     # Eureka Client向Eureka Server发送心跳的时间间隔,默认30

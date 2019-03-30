@@ -16,6 +16,7 @@ spring:
 
 #Eureka的配置    
 eureka:
+  environment: ${env:local}
   #See org.springframework.cloud.netflix.eureka.EurekaClientConfigBean
   client:
     # 注册自身节点
