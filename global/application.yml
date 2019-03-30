@@ -34,7 +34,7 @@ eureka:
     # 实例健康信息的URL路径
     health-check-url-path: "/actuator/health"
  
- hystrix:
+hystrix:
   command:
     # default配置全局HystrixCommand
     default:
