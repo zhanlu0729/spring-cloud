@@ -1,5 +1,5 @@
 server:
-  port: 8741
+  port: 7771
 #安全配置
 security:
   oauth2:

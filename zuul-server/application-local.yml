@@ -6,3 +6,19 @@ spring:
     url: jdbc:mysql://localhost:3306/db_spring_cloud?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
     username: root
     password: liuqi
+
+#安全配置
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      access-token-uri: http://localhost:7771/uaa/oauth/token
+      user-authorization-uri: http://localhost:7771/uaa/oauth/authorize
+      #授权端点
+      client-id: zuul-server
+      client-secret: secret
+    resource:
+      jwt:
+        # 使用对称加密方式,默认算法为HS256
+        key-value: springcloud123
