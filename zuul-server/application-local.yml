@@ -7,6 +7,12 @@ spring:
     username: root
     password: liuqi
 
+zuul:
+  routes:
+    consumer-movie:
+      path: /client/**
+      serviceId: consumer-movie
+
 #安全配置
 security:
   basic:
