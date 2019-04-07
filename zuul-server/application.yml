@@ -9,7 +9,7 @@ zuul:
   prefix: ""
   #是否在转发前从路径中删除前缀,默认true
   stripPrefix: true
-  # 当后端服务响应较慢，建议配置成 thread 且 use-separate-thread-pools: true
+  # 当后端服务响应较慢，建议配置成thread且use-separate-thread-pools: true
   ribbon-isolation-strategy: semaphore
   semaphore:
     max-semaphores: 100

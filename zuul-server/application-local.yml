@@ -29,4 +29,4 @@ security:
     resource:
       jwt:
         # 使用对称加密方式,默认算法为HS256
-        key-value: springcloud123
+        key-value: secret
