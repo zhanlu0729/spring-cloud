@@ -4,13 +4,13 @@ spring:
     user:
       name: ${SECURITY_USERNAME:bone}
       password: ${SECURITY_PASSWORD:123456}
-      
+
   # 配置RabbitMQ,用于应用配置项通知
   rabbitmq:
     addresses: localhost:5672
     username: guest
     password: liuqi
-      
+
 # 注册中心配置
 eureka:
   #See org.springframework.cloud.netflix.eureka.EurekaClientConfigBean
@@ -27,7 +27,7 @@ eureka:
     lease-expiration-duration-in-seconds: 30
     # Eureka Client向Eureka Server发送心跳的时间间隔,默认30
     lease-renewal-interval-in-seconds: 10
-    
+
 # 断路器的配置
 hystrix:
   command:
@@ -37,7 +37,7 @@ hystrix:
       execution.isolation.thread.timeoutInMilliseconds: 600000
       # 线程执行的隔离策略,默认值THREAD|SEMPHORE
       execution.isolation.strategy: THREAD
-      
+
 #Ribbon的配置
 ribbon:
   # 开启饥饿加载,默认false
